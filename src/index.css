@@ -18,21 +18,65 @@
     transform-origin: top;
     animation: rotate 1s 1;
 }
-
-.showAllButton{
-    background-color: green;
+.toggleButton{
+    animation-duration: 0.5s;
+    animation-timing-function: 1;
+    animation-fill-mode: forwards;
 }
-.showAllButton span{
-    right: 0;
-    color: rgb(5, 5, 142);
-    background-color: rgba(7, 114, 7, 0.81);
+.toggleBg{
+    animation-timing-function: 1;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
-
 @keyframes rotate{
     from{
         transform: rotateX(90deg);
     }
     to{
         transform: rotateX(0deg);
+    }
+}
+
+@keyframes activeShowAll {
+    from{
+        transform: translateX(0);
+        color: black;
+        background-color: rgb(226,232,240);
+    }
+    to{
+        transform: translateX(100%);
+        color: rgb(3, 3, 199);
+        background-color: rgb(13, 153, 13);
+    }
+}
+
+@keyframes desactiveShowAll {
+    from{
+        transform: translateX(100%);
+        color: rgb(3, 3, 199);
+        background-color: rgb(13, 153, 13);
+    }
+    to{
+        transform: translateX(0);
+        color: black;
+        background-color: rgb(226,232,240);
+    } 
+}
+
+@keyframes activeBg {
+    from{
+        width: 50%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+@keyframes desactiveBg {
+    from{
+        width: 100%;
+    }
+    to{
+        width: 50%;
     }
 }
