@@ -1,5 +1,5 @@
 import DarkButton from "./components/DarkButton"
-import SearchCountries from "./components/SearchCountries"
+import HomePage from "./components/HomePage"
 
 export default function App(){
   return (
@@ -10,7 +10,7 @@ export default function App(){
         <DarkButton/>
       </header>
 
-      <SearchCountries/>
+      <HomePage/>
 
     </section>
   )

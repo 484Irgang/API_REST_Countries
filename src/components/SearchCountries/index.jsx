@@ -6,9 +6,9 @@ import { useState } from "react"
 
 function SearchInput(){
     return(
-        <label className="bg-white p-5 shadow-md shadow-stone-200 w-[100%] flex rounded-md items-center mt-2 md:mt-0">
-                <FontAwesomeIcon className="pe-5 text-stone-400" icon={faMagnifyingGlass}/>
-                <input type="text" className="focus:outline-none w-[100%] placeholder:text-sm placeholder:text-stone-400" placeholder="Search for a country..."/>
+        <label className="bg-white relative shadow-md shadow-stone-200 w-[100%] max-w-sm lg:max-w-lg h-16 flex rounded-md items-center mt-2 md:mt-0">
+                <FontAwesomeIcon className="w-6 ps-8 h-6 absolute text-stone-400 z-[1]" icon={faMagnifyingGlass}/>
+                <input type="text" className="focus:outline-none focus:z-[2] focus:placeholder:ps-0 px-7 placeholder:ps-12 h-12 w-[100%] absolute placeholder:text-sm placeholder:text-stone-400" placeholder="Search for a country..."/>
         </label>
     )
 }
@@ -53,10 +53,10 @@ function ShowAllButton(){
 export default function SearchCountries(){    
 
     return(
-        <div className="p-[4%]">
+        <div className="p-[4%] md:flex justify-between">
             <SearchInput/>
 
-            <div className="flex items-center mt-4 justify-between">
+            <div className="flex items-center md:w-80 mt-4 md:mt-0 justify-between">
                 <FilterCountries/>
                 <ShowAllButton/>
             </div>
