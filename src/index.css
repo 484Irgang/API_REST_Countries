@@ -5,12 +5,18 @@
 
 @layer base{
     body{
-        height: 100vh;
+        height: 100%;
         font-family: "Nunito Sans";
+        @apply dark:bg-very-dark-blue-bg bg-very-light-gray;
     }
     h3{
         font-size: 1.1rem;
         font-weight: 700;
+        cursor: default;
+    }
+    span{
+        font-weight: 600;
+        cursor: default;
     }
 }
 

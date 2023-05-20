@@ -3,11 +3,11 @@ import { faMoon } from "@fortawesome/free-regular-svg-icons"
 
 export default function DarkButton(){
     function toggleDarkMode(){
-        const body = document.body;
-        if(body.classList.contains("dark"))
-            body.classList.remove("dark");
+        const html = document.children[0];
+        if(html.classList.contains("dark"))
+            html.classList.remove("dark");
         else{
-            body.classList.add("dark");
+            html.classList.add("dark");
         }
     }
     return(
