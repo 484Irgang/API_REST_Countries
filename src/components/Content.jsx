@@ -4,7 +4,7 @@ export function ShowAllContent({countries,seeDetailCountry}){
             {
                 countries.map((country, i) => {
                     return(
-                        <div onClick={() => seeDetailCountry(country)} key={i} className=" w-80 m-1 flex shadow-md shadow-stone-400 cursor-pointer rounded-md">
+                        <div onClick={() => seeDetailCountry(country)} key={i} className=" w-80 m-1 flex shadow-md shadow-stone-400 cursor-pointer rounded-md hover:bg-stone-200 transition">
                             <img src={country.flags.svg} className="w-[45%] aspect-[16/10] object-cover"/>
                             <div className="py-1 px-2">
                                 <p className=" text-xs font-bold mb-1">{country.name.common}</p>

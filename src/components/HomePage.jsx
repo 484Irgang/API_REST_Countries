@@ -39,11 +39,27 @@ export default function HomePage(){
     }
 
     function handleCountryDetail(value){
-        let newCountryDetail = allCountries.filter((country, i) => {
-            return country.cca3 === value.cca3;
-        })
+        if(value.length === 0){
+            setCountryDetail([]);
+        }
+        else{
+            let newCountryDetail = [value];
+            let newCountryBorders = [];
 
-        setCountryDetail(newCountryDetail);
+            if(newCountryDetail[0].hasOwnProperty("borders")){
+            newCountryDetail[0].borders.forEach((border, i) => {
+                let countries = allCountries.filter((country, i) => {
+                    return country.cca3 === border;
+                });
+    
+                newCountryBorders = [...newCountryBorders, countries[0]];
+            })
+
+            newCountryDetail = [...newCountryDetail, ...newCountryBorders];
+            }
+        
+            setCountryDetail(newCountryDetail);
+        }
     }
 
     useEffect(() => {
@@ -77,7 +93,7 @@ export default function HomePage(){
             
             {
                 countryDetail.length > 0?
-                <CountryDetail country={countryDetail}/>
+                <CountryDetail setCountry={handleCountryDetail} country={countryDetail}/>
                 :
                 (loading? 
                     <Loader/>
