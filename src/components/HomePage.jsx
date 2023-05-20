@@ -102,7 +102,7 @@ export default function HomePage(){
                     (currentCountries.length >0?
                     <ShowAllContent seeDetailCountry={handleCountryDetail} countries={currentCountries}/>
                     :
-                    <h3 className="w-[100%] text-center text-2xl text-gray-400 mt-10">Sorry, no countries founded</h3>
+                    <h3 className="w-[100%] text-center text-2xl text-gray-400 dark:text-very-dark-blue-txt mt-10">Sorry, no countries founded</h3>
                     )
                     :
                     <ShowContent seeDetailCountry={handleCountryDetail} countries={randomCountries}/>)

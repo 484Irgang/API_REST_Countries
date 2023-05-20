@@ -16,6 +16,7 @@
     }
     span{
         font-weight: 600;
+        @apply dark:text-white;
     }
 }
 
@@ -32,6 +33,20 @@
     animation-timing-function: 1;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
+}
+.darkMode{
+    animation-timing-function: 1;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    background-size: 100% 100%;
+    background-position: center;
+}
+.darkModeBg{
+    animation-timing-function: 1;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    background-size: 100% auto;
+    background-position: center;
 }
 @keyframes rotate{
     from{
@@ -83,5 +98,43 @@
     }
     to{
         width: 50%;
+    }
+}
+
+@keyframes applyLight {
+    from{
+        background-image: url("./components/assets/icon-night.svg");
+        transform: translateX(0);
+    }
+    to{
+        background-image: url("./components/assets/icon-day.svg");
+        transform: translateX(100%);
+    }
+}
+
+@keyframes applyDark {
+    from{
+        background-image: url("./components/assets/icon-day.svg");
+        transform: translateX(100%);
+    }
+    to{
+        background-image: url("./components/assets/icon-night.svg");
+        transform: translateX(0);
+    }
+}
+@keyframes applyBgLight {
+    from{
+        background-image: url("./components/assets/night.svg");
+    }
+    to{
+        background-image: url("./components/assets/day.svg");
+    }
+}
+@keyframes applyBgDark {
+    from{
+        background-image: url("./components/assets/day.svg");
+    }
+    to{
+        background-image: url("./components/assets/night.svg");
     }
 }
