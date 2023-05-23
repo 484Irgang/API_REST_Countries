@@ -6,7 +6,6 @@ export default function CountryDetail({setCountry,country}){
     const countryBorders = country.filter((country, i) => {
         return i != 0;
     });
-
     let currenciesCountry = [];
     let countryLanguage = [];
 

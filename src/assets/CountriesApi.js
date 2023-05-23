@@ -13,10 +13,12 @@ export function fetchRandomCountries(data){
 
 export async function fetchAllCountries(){
     url.pathname = "/v3.1/all";
-    const response = await fetch(url.href);
-    const data = await response.json();
 
-    const newData = data.map((country,i,array) => {
+    try{
+        const response = await fetch(url.href);
+        const data = await response.json();
+
+        const newData = data.map((country,i) => {
 
         let newPopulation = country.population.toString().split("");
 
@@ -31,7 +33,40 @@ export async function fetchAllCountries(){
         return {...country, population};
     })
 
-    return newData;
+        return newData; 
+    } 
+    catch(err){
+        console.log(err.message+", we will use the localy data");
+
+        const response = await fetch("./src/assets/data.json");
+        const data = await response.json();
+
+        const newData = data.map((country,i) => {
+            let name = {common: country.name};
+            let newPopulation = country.population.toString().split("");
+            let capital = [country.capital];
+            let tld = country.topLevelDomain;
+            let cca3 = country.alpha3Code;
+            let languages = {};
+            country.languages.forEach((lang, i) => {
+               return languages = {...languages, [i]: lang.name};
+            });
+            
+
+            if(newPopulation.length > 3)
+                newPopulation.splice(newPopulation.length-3,0,".");
+            if(newPopulation.length > 7)
+                newPopulation.splice(newPopulation.length-7,0,".");
+            if(newPopulation.length > 11)
+                newPopulation.splice(newPopulation.length-11,0,".");
+    
+            let population = newPopulation.join("");
+            
+            return {...country, population, name, capital, tld, cca3, languages};
+        })
+    
+            return newData; 
+    }
 }
 
 export async function filterCountry(value, countries){
